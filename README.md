@@ -1,8 +1,8 @@
-# 🤖 Advanced RAG PDF Query System
+# Advanced RAG PDF Query System
 
 An intelligent document analysis system that uses **Retrieval-Augmented Generation (RAG)** with **Groq API** for fast and accurate PDF document querying. This system prevents hallucinations by grounding responses strictly in the uploaded document content.
 
-## 🌟 Features
+## Features
 
 - **PDF Document Processing**: Upload and extract text from PDF files
 - **Intelligent Chunking**: Smart text segmentation for optimal retrieval
@@ -13,7 +13,7 @@ An intelligent document analysis system that uses **Retrieval-Augmented Generati
 - **Web Interface**: Clean, modern UI for easy interaction
 - **Real-time Processing**: Fast document processing and query responses
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 inferaread-RAG-pdf-groq/
@@ -32,7 +32,7 @@ inferaread-RAG-pdf-groq/
 └── run.py                  # Development runner
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Clone and Setup
 
@@ -63,7 +63,7 @@ python run.py
 
 Choose option 1 (Jupyter Notebook) and run all cells in `app/model.ipynb`.
 
-## 🔧 Alternative Setup Methods
+##  Alternative Setup Methods
 
 ### Method 1: Jupyter Notebook (Recommended)
 
@@ -88,7 +88,7 @@ cd app/
 python -c "exec(open('model.ipynb').read())"
 ```
 
-## 📱 Using the Application
+## Using the Application
 
 ### 1. Access the Web Interface
 
@@ -110,7 +110,7 @@ http://localhost:8000
 2. Click "Ask Question"
 3. Get AI-powered answers based on your document
 
-## 🤖 Model Information
+## Model Information
 
 - **LLM**: Llama3-8B-8192 (via Groq API)
 - **Embeddings**: sentence-transformers/all-MiniLM-L6-v2
@@ -118,8 +118,7 @@ http://localhost:8000
 - **Text Splitter**: LangChain RecursiveCharacterTextSplitter
 - **Chunk Size**: 500 characters with 50 character overlap
 
-## 🛡️ Hallucination Prevention
-
+## 🛡Hallucination Prevention
 The system implements several techniques to prevent hallucinations:
 
 1. **Strict Context Grounding**: Responses are based only on retrieved document chunks
@@ -128,7 +127,7 @@ The system implements several techniques to prevent hallucinations:
 4. **Source Validation**: Shows number of sources used for each answer
 5. **Fallback Responses**: Clear messaging when information isn't found in the document
 
-## 🔍 Technical Details
+##  Technical Details
 
 ### PDF Processing Pipeline
 
@@ -146,7 +145,7 @@ The system implements several techniques to prevent hallucinations:
 4. **LLM Generation**: Groq API generates grounded response
 5. **Response Validation**: Ensures answer stays within context
 
-## 📦 Dependencies
+##  Dependencies
 
 ### Core Libraries
 
@@ -161,7 +160,7 @@ The system implements several techniques to prevent hallucinations:
 
 See `requirements.txt` for complete dependency list.
 
-## 🌐 API Endpoints
+##  API Endpoints
 
 - `GET /`: Main web interface
 - `POST /upload`: Upload and process PDF
@@ -179,7 +178,7 @@ MAX_RETRIEVED_CHUNKS = 5  # Number of chunks to retrieve
 MODEL_NAME = "llama3-8b-8192"  # Groq model to use
 ```
 
-## 🧪 Testing
+##  Testing
 
 ### Test with Sample Questions
 
@@ -199,7 +198,7 @@ The system handles common errors:
 - API connectivity issues
 - Missing environment variables
 
-## 🚨 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -224,7 +223,7 @@ The system handles common errors:
 - Fine-tune retrieval parameters
 - Cache embeddings for repeated queries
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -232,26 +231,13 @@ The system handles common errors:
 4. Test thoroughly
 5. Submit a pull request
 
-## 📝 License
+## 📝License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - **Groq** for providing fast LLM inference
 - **LangChain** for RAG framework
 - **HuggingFace** for embedding models
 - **Facebook AI** for FAISS vector search
-
-## 📞 Support
-
-For issues and questions:
-
-1. Check the troubleshooting section
-2. Review the error messages
-3. Create an issue on GitHub
-4. Contact the development team
-
----
-
-**Built with ❤️ using Groq API and modern RAG techniques**
