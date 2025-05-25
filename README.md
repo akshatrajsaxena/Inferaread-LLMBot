@@ -37,8 +37,7 @@ inferaread-RAG-pdf-groq/
 ### 1. Clone and Setup
 
 ```bash
-git clone <your-repo-url>
-cd inferaread-RAG-pdf-groq
+git clone https://github.com/akshatrajsaxena/Inferaread-LLMBot
 ```
 
 ### 2. Get Groq API Key
@@ -52,7 +51,7 @@ cd inferaread-RAG-pdf-groq
 Update the `.env` file with your Groq API key:
 
 ```env
-GROQ_API_KEY=your_actual_groq_api_key_here
+GROQ_API_KEY=[Your GROQ API key Here]
 ```
 
 ### 4. Run the Application
