@@ -1,0 +1,16 @@
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+langchain==0.0.352
+langchain-community==0.0.13
+sentence-transformers==2.2.2
+faiss-cpu==1.7.4
+PyMuPDF==1.23.8
+python-dotenv==1.0.0
+openai==0.28.1
+pydantic==2.5.0
+numpy==1.24.3
+transformers==4.35.2
+torch==2.1.1
+tokenizers==0.15.0
+nest-asyncio==1.5.8
