@@ -28,7 +28,31 @@ import fitz
 doc = fitz.open("input.pdf")
 text = "\n\n".join([page.get_text() for page in doc])
 ```
-
+- Preprocessing the Text: 
+  This includes:
+  - Remove extra whitespace and non-printable characters.
+  - Optionally fix hyphenation and merge broken lines.
+  - Normalize text (lowercasing, unicode normalization if needed).
+  
+- Chunking the Text into Passages
+  As the LLMs and embedding models have context length limits (e.g., 512 or 1024 tokens), this was the neccesary step.This is done using a sliding window approach to chunk text (e.g., 200-token chunks with 50-token overlap).We can also chunk by paragraphs or sentences if semantic coherence is important.
+```
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+chunks = text_splitter.split_text(text)
+```
+- Storing Embeddings and Metadata: This was done using the tools FAISS for fast similarity search.It Store mapping of chunk → original page or section. Save in a dictionary.
+```
+import faiss
+index = faiss.IndexFlatL2(embeddings.shape[1])
+index.add(embeddings)
+```
+- Handling a User Query: When user submits a natural language question. The query is embedded using the same SentenceTransformer model used earlier. A FAISS nearest-neighbor search retrieves top-K most similar chunks based on cosine similarity or L2 distance.
+```
+query_embedding = model.encode([query])
+D, I = index.search(query_embedding, top_k)
+relevant_chunks = [chunks[i] for i in I[0]]
+```
 ## Project Structure
 
 ```
@@ -69,6 +93,15 @@ Update the `.env` file with your Groq API key:
 ```env
 GROQ_API_KEY=[Your GROQ API key Here]
 ```
+4. Create your python Environment and Install all Dependencies
+```bash
+python -m venv project
+project\Scripts\activate
+```
+then install all the dependencies
+```bash
+pip install -r requirements.txt
+```
 
 ### 4. Run the Application
 
@@ -76,32 +109,6 @@ GROQ_API_KEY=[Your GROQ API key Here]
 python run.py
 ```
 
-Choose option 1 (Jupyter Notebook) and run all cells in `app/model.ipynb`.
-
-##  Alternative Setup Methods
-
-### Method 1: Jupyter Notebook (Recommended)
-
-```bash
-# Install Jupyter if not installed
-pip install jupyter
-
-# Start Jupyter
-jupyter notebook app/
-
-# Open model.ipynb and run all cells
-```
-
-### Method 2: Direct Python Execution
-
-```bash
-# Install requirements
-pip install -r requirements.txt
-
-# Run the notebook as Python (requires conversion)
-cd app/
-python -c "exec(open('model.ipynb').read())"
-```
 
 ## Using the Application
 
