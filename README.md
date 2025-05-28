@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./DishIt Logo.png" alt="DishIT Logo" width="200">
+  <img src="./AILogo.jpg" alt="Inferaread" width="200">
 </p>
 
 <h1 align="center">InferaRead - RAG PDF Query System</h1>
