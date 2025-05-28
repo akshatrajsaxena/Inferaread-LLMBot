@@ -1,3 +1,22 @@
+<p align="center">
+  <img src="./DishIt Logo.png" alt="DishIT Logo" width="200">
+</p>
+
+<h1 align="center">InferaRead - RAG PDF Query System</h1>
+
+<p align="center">
+    NFERAREAD is an advanced RAG PDF Query System powered by Groq API & LLaMA3/Gemma-7b-It
+    <br />
+    <strong>Explore the docs »</strong>
+    <br />
+    <br />
+    <a href="https://github.com/akshatrajsaxena/Inferaread-LLMBot/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/akshatrajsaxena/Inferaread-LLMBot/issues">Request Feature</a>
+    <br />
+</p>
+
+
 # Advanced RAG PDF Query System
 
 An intelligent document analysis system that uses **Retrieval-Augmented Generation (RAG)** with **Groq API** for fast and accurate PDF document querying. This system prevents hallucinations by grounding responses strictly in the uploaded document content.
