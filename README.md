@@ -21,7 +21,7 @@ An intelligent document analysis system that uses **Retrieval-Augmented Generati
 ## Working
 - Uploading the Document
   The file is saved temporarily ```(e.g., /tmp/input.pdf)```.
-- Extractung Text from Document
+- Extractung Text from Document:
   For this purpose i used tools PyMuPDF. The PDF is parsed page-by-page. Text is extracted from each page while preserving layout and paragraph structure as much as possible.
 ```
 import fitz
@@ -34,7 +34,7 @@ text = "\n\n".join([page.get_text() for page in doc])
   - Optionally fix hyphenation and merge broken lines.
   - Normalize text (lowercasing, unicode normalization if needed).
   
-- Chunking the Text into Passages
+- Chunking the Text into Passages:
   As the LLMs and embedding models have context length limits (e.g., 512 or 1024 tokens), this was the neccesary step.This is done using a sliding window approach to chunk text (e.g., 200-token chunks with 50-token overlap).We can also chunk by paragraphs or sentences if semantic coherence is important.
 ```
 from langchain.text_splitter import RecursiveCharacterTextSplitter
