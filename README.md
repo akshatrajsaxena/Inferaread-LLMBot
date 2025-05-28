@@ -16,9 +16,6 @@
     <br />
 </p>
 
-
-# Advanced RAG PDF Query System
-
 An intelligent document analysis system that uses **Retrieval-Augmented Generation (RAG)** with **Groq API** for fast and accurate PDF document querying. This system prevents hallucinations by grounding responses strictly in the uploaded document content.
 
 ## Features
