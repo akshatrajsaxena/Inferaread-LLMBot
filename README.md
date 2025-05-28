@@ -119,7 +119,7 @@ Once running, open your browser and go to:
 http://localhost:8000
 ```
 
-### 2. Upload PDF Document
+### 2. Upload PDF Document and Ask Queries
 
 1. Click "Choose File" in the upload section
 2. Select your PDF document
@@ -140,7 +140,7 @@ http://localhost:8000
 - **Text Splitter**: LangChain RecursiveCharacterTextSplitter
 - **Chunk Size**: 500 characters with 50 character overlap
 
-## 🛡Hallucination Prevention
+## Hallucination Prevention
 The system implements several techniques to prevent hallucinations:
 
 1. **Strict Context Grounding**: Responses are based only on retrieved document chunks
@@ -149,7 +149,6 @@ The system implements several techniques to prevent hallucinations:
 4. **Source Validation**: Shows number of sources used for each answer
 5. **Fallback Responses**: Clear messaging when information isn't found in the document
 
-##  Technical Details
 
 ### PDF Processing Pipeline
 
@@ -178,10 +177,6 @@ The system implements several techniques to prevent hallucinations:
 - **PyMuPDF**: PDF text extraction
 - **OpenAI**: Groq API client
 
-### Full Requirements
-
-See `requirements.txt` for complete dependency list.
-
 ##  API Endpoints
 
 - `GET /`: Main web interface
@@ -189,7 +184,7 @@ See `requirements.txt` for complete dependency list.
 - `POST /query`: Query the processed document
 - `GET /health`: System health check
 
-## 🛠️ Configuration Options
+## Configuration Options
 
 Customize the system by modifying these parameters in the code:
 
@@ -200,27 +195,6 @@ MAX_RETRIEVED_CHUNKS = 5  # Number of chunks to retrieve
 MODEL_NAME = "llama3-8b-8192"  # Groq model to use
 ```
 
-##  Testing
-
-### Test with Sample Questions
-
-Try these questions with your uploaded PDF:
-
-- "What is the main topic of this document?"
-- "Can you summarize the key points?"
-- "What are the conclusions mentioned?"
-- "Are there any recommendations provided?"
-
-### Error Handling
-
-The system handles common errors:
-
-- Invalid PDF files
-- Empty or corrupted documents
-- API connectivity issues
-- Missing environment variables
-
-## Troubleshooting
 
 ### Common Issues
 
@@ -230,11 +204,10 @@ The system handles common errors:
 
 2. **"No text found in PDF"**
    - PDF might be image-based (scanned)
-   - Try OCR preprocessing
 
 3. **"Module not found"**
    - Run `pip install -r requirements.txt`
-
+  - Or refer for [python documentation](https://docs.python.org/3/installing/index.html) for installing a missing dependencied
 4. **Port already in use**
    - Change port in the code or kill existing processes
 
