@@ -16,20 +16,20 @@ An intelligent document analysis system that uses **Retrieval-Augmented Generati
 ## Project Structure
 
 ```
-inferaread-RAG-pdf-groq/
-│
-├── app/                      # Main backend logic
-│   └── model.ipynb          # Complete RAG implementation
-│
-├── data/
-│   ├── uploads/             # Uploaded PDFs
-│   ├── processed/           # Chunked/cleaned data
-│   └── index/               # Vector DB index (FAISS files)
-│
-├── requirements.txt         # Python dependencies
-├── .env                     # API keys and configuration
-├── README.md               # This file
-└── run.py                  # Development runner
+InferaRead-rag-pdf-groq
+├─ .env
+├─ app
+│  ├─ data
+│  │  ├─ index
+│  │  │  └─ faiss_index
+│  │  │     ├─ index.faiss
+│  │  │     └─ index.pkl
+│  └─ model.ipynb
+├─ frontend
+│  ├─ app.py
+│  ├─ config.py
+│  ├─ requirements.txt
+│  ├─ utils.py
 ```
 
 ##  Quick Start
