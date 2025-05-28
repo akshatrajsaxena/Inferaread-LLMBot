@@ -16,18 +16,18 @@
     <br />
 </p>
 
-An intelligent document analysis system that uses **Retrieval-Augmented Generation (RAG)** with **Groq API** for fast and accurate PDF document querying. This system prevents hallucinations by grounding responses strictly in the uploaded document content.
+An intelligent document analysis system that uses **Retrieval-Augmented Generation (RAG)** with **Groq API** for fast and accurate PDF document querying. This system prevents hallucinations by grounding responses strictly in the uploaded document content. Any user query which is out of context is flagged as unmarked and a predefined message appears stating that the query is not within the document.
 
-## Features
-
-- **PDF Document Processing**: Upload and extract text from PDF files
-- **Intelligent Chunking**: Smart text segmentation for optimal retrieval
-- **Vector Embeddings**: Uses HuggingFace sentence transformers for semantic search
-- **FAISS Vector Store**: Fast similarity search and retrieval
-- **Groq API Integration**: Lightning-fast inference with Llama3-8B model
-- **Hallucination Prevention**: Responses grounded strictly in document content
-- **Web Interface**: Clean, modern UI for easy interaction
-- **Real-time Processing**: Fast document processing and query responses
+## Working
+- Uploading the Document
+  The file is saved temporarily ```(e.g., /tmp/input.pdf)```.
+- Extractung Text from Document
+  For this purpose i used tools PyMuPDF. The PDF is parsed page-by-page. Text is extracted from each page while preserving layout and paragraph structure as much as possible.
+```
+import fitz
+doc = fitz.open("input.pdf")
+text = "\n\n".join([page.get_text() for page in doc])
+```
 
 ## Project Structure
 
