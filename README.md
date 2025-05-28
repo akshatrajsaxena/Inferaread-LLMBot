@@ -93,7 +93,7 @@ Update the `.env` file with your Groq API key:
 ```env
 GROQ_API_KEY=[Your GROQ API key Here]
 ```
-4. Create your python Environment and Install all Dependencies
+### 4. Create your python Environment and Install all Dependencies
 ```bash
 python -m venv project
 project\Scripts\activate
@@ -103,7 +103,7 @@ then install all the dependencies
 pip install -r requirements.txt
 ```
 
-### 4. Run the Application
+### 5. Run the Application
 
 ```bash
 python run.py
