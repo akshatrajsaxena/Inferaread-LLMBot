@@ -5,7 +5,7 @@
 <h1 align="center">InferaRead - RAG PDF Query System</h1>
 
 <p align="center">
-    NFERAREAD is an advanced RAG PDF Query System powered by Groq API & LLaMA3/Gemma-7b-It
+    INFERAREAD is an advanced RAG PDF Query System powered by Groq API & LLaMA3/Gemma-7b-It
     <br />
     <strong>Explore the docs »</strong>
     <br />
