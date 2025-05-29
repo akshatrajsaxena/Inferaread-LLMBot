@@ -19,9 +19,9 @@
 An intelligent document analysis system that uses **Retrieval-Augmented Generation (RAG)** with **Groq API** for fast and accurate PDF document querying. This system prevents hallucinations by grounding responses strictly in the uploaded document content. Any user query which is out of context is flagged as unmarked and a predefined message appears stating that the query is not within the document.
 
 ## Working
-- Uploading the Document
+- Uploading the Document:
   The file is saved temporarily ```(e.g., /tmp/input.pdf)```.
-- Extractung Text from Document:
+- Extracting Text from Document:
   For this purpose i used tools PyMuPDF. The PDF is parsed page-by-page. Text is extracted from each page while preserving layout and paragraph structure as much as possible.
 ```
 import fitz
@@ -35,7 +35,7 @@ text = "\n\n".join([page.get_text() for page in doc])
   - Normalize text (lowercasing, unicode normalization if needed).
   
 - Chunking the Text into Passages:
-  As the LLMs and embedding models have context length limits (e.g., 512 or 1024 tokens), this was the neccesary step.This is done using a sliding window approach to chunk text (e.g., 200-token chunks with 50-token overlap).We can also chunk by paragraphs or sentences if semantic coherence is important.
+  As the LLMs and embedding models have context length limits (e.g., 512 or 1024 tokens), this was the neccesary step. This is done using a sliding window approach to chunk text (e.g., 200-token chunks with 50-token overlap). We can also chunk by paragraphs or sentences if semantic coherence is important.
 ```
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
@@ -93,7 +93,7 @@ Update the `.env` file with your Groq API key:
 ```env
 GROQ_API_KEY=[Your GROQ API key Here]
 ```
-### 4. Create your python Environment and Install all Dependencies
+### 4. Create your python environment and Install all Dependencies
 ```bash
 python -m venv project
 project\Scripts\activate
@@ -122,15 +122,8 @@ http://localhost:8000
 ### 2. Upload PDF Document and Ask Queries
 
 1. Click "Choose File" in the upload section
-2. Select your PDF document
-3. Click "Upload & Process PDF"
-4. Wait for processing to complete
-
-### 3. Ask Questions
-
-1. Enter your question in the query box
-2. Click "Ask Question"
-3. Get AI-powered answers based on your document
+2. Click "Upload & Process PDF"
+3. Wait for processing to complete
 
 ## Model Information
 
@@ -143,10 +136,10 @@ http://localhost:8000
 ## Hallucination Prevention
 The system implements several techniques to prevent hallucinations:
 
-1. **Strict Context Grounding**: Responses are based only on retrieved document chunks
-2. **Low Temperature**: Temperature set to 0.1 for more deterministic outputs
-3. **Explicit Instructions**: Clear prompts instructing the model to stay within context
-4. **Source Validation**: Shows number of sources used for each answer
+1. **Strict Context Grounding**: Responses are based only on retrieved document chunks.
+2. **Low Temperature**: Temperature set to 0.1 for more deterministic outputs and negligible randomness.
+3. **Explicit Instructions**: Clear prompts instructing the model to stay within context.
+4. **Source Validation**: Shows number of sources used for each answer.
 5. **Fallback Responses**: Clear messaging when information isn't found in the document
 
 
@@ -177,13 +170,6 @@ The system implements several techniques to prevent hallucinations:
 - **PyMuPDF**: PDF text extraction
 - **OpenAI**: Groq API client
 
-##  API Endpoints
-
-- `GET /`: Main web interface
-- `POST /upload`: Upload and process PDF
-- `POST /query`: Query the processed document
-- `GET /health`: System health check
-
 ## Configuration Options
 
 Customize the system by modifying these parameters in the code:
@@ -210,13 +196,6 @@ MODEL_NAME = "llama3-8b-8192"  # Groq model to use
   - Or refer for [python documentation](https://docs.python.org/3/installing/index.html) for installing a missing dependencied
 4. **Port already in use**
    - Change port in the code or kill existing processes
-
-### Performance Optimization
-
-- Use GPU if available for embedding models
-- Adjust chunk size based on document type
-- Fine-tune retrieval parameters
-- Cache embeddings for repeated queries
 
 ## Contributing
 
