@@ -109,6 +109,14 @@ pip install -r requirements.txt
 python run.py
 ```
 
+## Project Status
+
+**The project is constantly fine-tuning and updating, so it might contain bugs or incomplete features. Contributions and feedback are welcome!**
+
+### Testing on my Cover Letter
+![image](https://github.com/user-attachments/assets/b6d794d8-2489-4f87-b807-c64a3f2d8602)
+
+
 
 ## Using the Application
 
